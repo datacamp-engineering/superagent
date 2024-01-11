@@ -14,7 +14,7 @@ const qs = require('qs');
 const mime = require('mime');
 let methods = require('methods');
 const FormData = require('form-data');
-const formidable = require('formidable');
+const { formidable } = require('formidable');
 const debug = require('debug')('superagent');
 const CookieJar = require('cookiejar');
 const semverGte = require('semver/functions/gte');
@@ -469,7 +469,6 @@ Request.prototype._pipeContinue = function (stream, options) {
       res.pipe(stream, options);
       res.once('end', () => this.emit('end'));
     }
-
   });
   return stream;
 };
